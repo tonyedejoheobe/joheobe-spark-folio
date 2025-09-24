@@ -95,29 +95,29 @@ const HeroSection: React.FC = () => {
 
           {/* 3D Visual Element */}
           <div className="relative flex items-center justify-center animate-slide-in-right">
-            <div className="relative w-80 h-80 lg:w-96 lg:h-96">
+            <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
               {/* Floating code blocks */}
-              <div className="absolute top-0 right-0 bg-card border border-border rounded-lg p-4 shadow-lg animate-float card-3d">
-                <pre className="text-sm text-brand-primary font-mono">
+              <div className="absolute top-0 right-0 bg-card border border-border rounded-lg p-3 sm:p-4 shadow-lg animate-float card-3d">
+                <pre className="text-xs sm:text-sm text-brand-primary font-mono">
                   <code>{`<Frontend\n  developer />`}</code>
                 </pre>
               </div>
               
-              <div className="absolute bottom-0 left-0 bg-card border border-border rounded-lg p-4 shadow-lg animate-float card-3d" style={{ animationDelay: '1s' }}>
-                <pre className="text-sm text-brand-secondary font-mono">
+              <div className="absolute bottom-0 left-0 bg-card border border-border rounded-lg p-3 sm:p-4 shadow-lg animate-float card-3d" style={{ animationDelay: '1s' }}>
+                <pre className="text-xs sm:text-sm text-brand-secondary font-mono">
                   <code>{`support: {\n  tickets: 95%\n}`}</code>
                 </pre>
               </div>
               
-              <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 bg-card border border-border rounded-lg p-4 shadow-lg animate-float card-3d" style={{ animationDelay: '2s' }}>
-                <pre className="text-sm text-brand-neon font-mono">
+              <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 bg-card border border-border rounded-lg p-3 sm:p-4 shadow-lg animate-float card-3d" style={{ animationDelay: '2s' }}>
+                <pre className="text-xs sm:text-sm text-brand-neon font-mono">
                   <code>{`React.tsx`}</code>
                 </pre>
               </div>
 
               {/* Central avatar placeholder */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-full flex items-center justify-center shadow-2xl animate-pulse-glow">
-                <span className="text-4xl font-bold text-white">JTE</span>
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-28 h-28 sm:w-32 sm:h-32 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-full flex items-center justify-center shadow-2xl animate-pulse-glow">
+                <span className="text-3xl sm:text-4xl font-bold text-white">JTE</span>
               </div>
 
               {/* Orbiting elements */}

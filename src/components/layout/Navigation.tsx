@@ -1,18 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useTheme } from '@/contexts/ThemeContext';
 
 const Navigation: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isNavVisible, setIsNavVisible] = useState(true);
+  const lastScrollY = useRef(0);
   const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+      setIsScrolled(currentScrollY > 20);
+
+      // Hide navbar on scroll down, show on scroll up
+      if (currentScrollY > lastScrollY.current && currentScrollY > 80) { // 80 is header height
+        setIsNavVisible(false);
+      } else {
+        setIsNavVisible(true);
+      }
+      lastScrollY.current = currentScrollY;
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -38,7 +49,7 @@ const Navigation: React.FC = () => {
         isScrolled 
           ? 'bg-background/95 backdrop-blur-md border-b border-border shadow-lg' 
           : 'bg-transparent'
-      }`}
+      } ${isNavVisible ? 'translate-y-0' : '-translate-y-full'}`}
     >
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
