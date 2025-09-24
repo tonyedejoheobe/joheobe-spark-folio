@@ -294,9 +294,28 @@
   .perspective-1000 {
     perspective: 1000px;
   }
+
+  .bg-animated-gradient {
+    background: linear-gradient(45deg,
+      hsl(var(--background)),
+      hsl(var(--surface)),
+      hsl(var(--brand-primary) / 0.1),
+      hsl(var(--brand-secondary) / 0.1),
+      hsl(var(--surface)),
+      hsl(var(--background))
+    );
+    background-size: 400% 400%;
+    animation: gradient-pan 30s ease infinite;
+  }
 }
 
 /* Keyframe Animations */
+@keyframes gradient-pan {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 @keyframes float {
   0%, 100% { transform: translateY(0px) rotate(0deg); }
   33% { transform: translateY(-10px) rotate(1deg); }

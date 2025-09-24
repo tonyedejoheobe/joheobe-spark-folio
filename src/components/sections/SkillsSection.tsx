@@ -1,5 +1,6 @@
 import React from 'react';
 import { Code, Monitor, Users, Settings, Heart, Zap } from 'lucide-react';
+import AnimatedDiv from '@/components/ui/AnimatedDiv';
 
 const SkillsSection: React.FC = () => {
   const skillCategories = [
@@ -78,21 +79,22 @@ const SkillsSection: React.FC = () => {
     <section id="skills" className="py-20 px-6 bg-surface/50">
       <div className="container mx-auto max-w-6xl">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-slide-up">
+        <AnimatedDiv animationClass="animate-slide-up" className="text-center mb-16">
           <h2 className="heading-lg mb-4">Skills & Expertise</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             A comprehensive skill set spanning customer support excellence, 
             frontend development, and technical problem-solving
           </p>
-        </div>
+        </AnimatedDiv>
 
         {/* Skills Grid */}
         <div className="grid lg:grid-cols-3 gap-8 mb-16">
           {skillCategories.map((category, categoryIndex) => (
-            <div 
+            <AnimatedDiv
               key={categoryIndex}
-              className="card-elevated group hover:border-brand-primary/20 animate-slide-up"
-              style={{ animationDelay: `${categoryIndex * 0.2}s` }}
+              animationClass="animate-slide-up"
+              delay={categoryIndex * 200}
+              className="card-elevated group hover:border-brand-primary/20"
             >
               {/* Category Header */}
               <div className="flex items-center gap-3 mb-6">
@@ -121,24 +123,25 @@ const SkillsSection: React.FC = () => {
                         className={`h-full bg-gradient-to-r ${category.color} transition-all duration-1000 ease-out`}
                         style={{ 
                           width: `${skill.level}%`,
-                          animationDelay: `${(categoryIndex * 0.2) + (skillIndex * 0.1)}s`
+                          transitionDelay: `${(categoryIndex * 200) + (skillIndex * 20)}ms`
                         }}
                       ></div>
                     </div>
                   </div>
                 ))}
               </div>
-            </div>
+            </AnimatedDiv>
           ))}
         </div>
 
         {/* Achievements Section */}
         <div className="grid md:grid-cols-3 gap-8">
           {achievements.map((achievement, index) => (
-            <div 
+            <AnimatedDiv
               key={index}
-              className="card-glass text-center group hover:border-brand-primary/20 animate-slide-up"
-              style={{ animationDelay: `${0.6 + (index * 0.1)}s` }}
+              animationClass="animate-slide-up"
+              delay={600 + index * 100}
+              className="card-glass text-center group hover:border-brand-primary/20"
             >
               <div className="w-16 h-16 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                 <achievement.icon className="w-8 h-8 text-white" />
@@ -149,12 +152,12 @@ const SkillsSection: React.FC = () => {
               <p className="text-muted-foreground leading-relaxed">
                 {achievement.description}
               </p>
-            </div>
+            </AnimatedDiv>
           ))}
         </div>
 
         {/* Technology Focus */}
-        <div className="mt-16 text-center animate-slide-up" style={{ animationDelay: '1s' }}>
+        <AnimatedDiv animationClass="animate-slide-up" delay={1000} className="mt-16 text-center">
           <h3 className="text-2xl font-semibold text-foreground mb-8">
             Currently Learning & Exploring
           </h3>
@@ -168,7 +171,7 @@ const SkillsSection: React.FC = () => {
               </span>
             ))}
           </div>
-        </div>
+        </AnimatedDiv>
       </div>
     </section>
   );

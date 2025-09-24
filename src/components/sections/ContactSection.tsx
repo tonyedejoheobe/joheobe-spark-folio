@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle, Github, Linkedin, ExternalLink, MessageCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import AnimatedDiv from '@/components/ui/AnimatedDiv';
 
 const ContactSection: React.FC = () => {
   const { toast } = useToast();
@@ -107,17 +108,17 @@ const ContactSection: React.FC = () => {
     <section id="contact" className="py-20 px-6 bg-surface/50">
       <div className="container mx-auto max-w-6xl">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-slide-up">
+        <AnimatedDiv animationClass="animate-slide-up" className="text-center mb-16">
           <h2 className="heading-lg mb-4">Let's Connect</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Ready to collaborate on your next project or discuss how I can contribute 
             to your team? I'd love to hear from you.
           </p>
-        </div>
+        </AnimatedDiv>
 
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Information */}
-          <div className="space-y-8 animate-slide-in-left">
+          <AnimatedDiv animationClass="animate-slide-in-left" delay={200} className="space-y-8">
             <div>
               <h3 className="text-2xl font-semibold text-foreground mb-6">
                 Get in Touch
@@ -176,10 +177,10 @@ const ContactSection: React.FC = () => {
                 ))}
               </div>
             </div>
-          </div>
+          </AnimatedDiv>
 
           {/* Contact Form */}
-          <div className="animate-slide-in-right">
+          <AnimatedDiv animationClass="animate-slide-in-right" delay={400}>
             <div className="card-elevated">
               <h3 className="text-2xl font-semibold text-foreground mb-6">
                 Send a Message
@@ -295,11 +296,11 @@ const ContactSection: React.FC = () => {
                 </form>
               )}
             </div>
-          </div>
+          </AnimatedDiv>
         </div>
 
         {/* Footer Note */}
-        <div className="text-center mt-16 animate-slide-up" style={{ animationDelay: '0.5s' }}>
+        <AnimatedDiv animationClass="animate-slide-up" delay={500} className="text-center mt-16">
           <div className="card-glass max-w-2xl mx-auto">
             <h3 className="text-lg font-semibold text-foreground mb-3">
               Open to Opportunities
@@ -310,7 +311,7 @@ const ContactSection: React.FC = () => {
               chat about technology and customer experience, feel free to reach out.
             </p>
           </div>
-        </div>
+        </AnimatedDiv>
       </div>
     </section>
   );

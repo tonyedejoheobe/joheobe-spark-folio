@@ -1,5 +1,7 @@
 import React from 'react';
-import { Calendar, MapPin, TrendingUp, Users, Code, Database } from 'lucide-react';
+import { Calendar, MapPin, TrendingUp, Code } from 'lucide-react';
+import AnimatedDiv from '@/components/ui/AnimatedDiv';
+
 
 const ExperienceSection: React.FC = () => {
   const experiences = [
@@ -39,13 +41,13 @@ const ExperienceSection: React.FC = () => {
     <section id="experience" className="py-20 px-6">
       <div className="container mx-auto max-w-6xl">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-slide-up">
+        <AnimatedDiv animationClass="animate-slide-up" className="text-center mb-16">
           <h2 className="heading-lg mb-4">Professional Experience</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             A proven track record of delivering exceptional customer support while 
             contributing to product development and process optimization
           </p>
-        </div>
+        </AnimatedDiv>
 
         {/* Timeline */}
         <div className="relative">
@@ -53,12 +55,13 @@ const ExperienceSection: React.FC = () => {
           <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-brand-primary via-brand-secondary to-brand-neon transform md:-translate-x-1/2"></div>
 
           {experiences.map((exp, index) => (
-            <div 
+            <AnimatedDiv
               key={index}
-              className={`relative mb-16 animate-slide-up ${
+              animationClass={index % 2 === 0 ? 'animate-slide-in-right' : 'animate-slide-in-left'}
+              delay={index * 200}
+              className={`relative mb-16 ${
                 index % 2 === 0 ? 'md:pr-1/2' : 'md:pl-1/2 md:text-right'
               }`}
-              style={{ animationDelay: `${index * 0.2}s` }}
             >
               {/* Timeline Node */}
               <div className={`absolute top-8 w-6 h-6 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-full border-4 border-background shadow-lg ${
@@ -134,12 +137,12 @@ const ExperienceSection: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </AnimatedDiv>
           ))}
         </div>
 
         {/* Call to Action */}
-        <div className="text-center mt-16 animate-slide-up">
+        <AnimatedDiv animationClass="animate-slide-up" className="text-center mt-16">
           <div className="card-glass max-w-2xl mx-auto">
             <h3 className="text-xl font-semibold text-foreground mb-3">
               Ready to Collaborate?
@@ -155,7 +158,7 @@ const ExperienceSection: React.FC = () => {
               Get In Touch
             </button>
           </div>
-        </div>
+        </AnimatedDiv>
       </div>
     </section>
   );

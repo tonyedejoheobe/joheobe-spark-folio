@@ -18,12 +18,8 @@ const HeroSection: React.FC = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6 py-20 overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/4 -left-40 w-80 h-80 bg-brand-primary/20 rounded-full blur-3xl animate-pulse-slow"></div>
-        <div className="absolute bottom-1/4 -right-40 w-80 h-80 bg-brand-secondary/20 rounded-full blur-3xl animate-pulse-slow delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-neon/10 rounded-full blur-3xl animate-float"></div>
-      </div>
+      {/* Animated Gradient Background */}
+      <div className="absolute inset-0 -z-10 bg-animated-gradient"></div>
 
       <div className="container mx-auto max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
