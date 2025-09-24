@@ -66,13 +66,13 @@ const Navigation: React.FC = () => {
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-surface hover:bg-accent transition-colors duration-200"
+              className="p-2 rounded-lg bg-card border border-border hover:bg-accent transition-colors duration-200 shadow-sm"
               aria-label="Toggle theme"
             >
               {theme === 'light' ? (
-                <Moon className="w-5 h-5 text-muted-foreground" />
+                <Moon className="w-5 h-5 text-foreground" />
               ) : (
-                <Sun className="w-5 h-5 text-muted-foreground" />
+                <Sun className="w-5 h-5 text-foreground" />
               )}
             </button>
           </div>
@@ -81,25 +81,25 @@ const Navigation: React.FC = () => {
           <div className="md:hidden flex items-center space-x-4">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-surface hover:bg-accent transition-colors duration-200"
+              className="p-2 rounded-lg bg-card border border-border hover:bg-accent transition-colors duration-200 shadow-sm"
               aria-label="Toggle theme"
             >
               {theme === 'light' ? (
-                <Moon className="w-5 h-5 text-muted-foreground" />
+                <Moon className="w-5 h-5 text-foreground" />
               ) : (
-                <Sun className="w-5 h-5 text-muted-foreground" />
+                <Sun className="w-5 h-5 text-foreground" />
               )}
             </button>
             
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-lg bg-surface hover:bg-accent transition-colors duration-200"
+              className="p-2 rounded-lg bg-card border border-border hover:bg-accent transition-colors duration-200 shadow-sm"
               aria-label="Toggle menu"
             >
               {isMenuOpen ? (
-                <X className="w-6 h-6 text-muted-foreground" />
+                <X className="w-6 h-6 text-foreground" />
               ) : (
-                <Menu className="w-6 h-6 text-muted-foreground" />
+                <Menu className="w-6 h-6 text-foreground" />
               )}
             </button>
           </div>

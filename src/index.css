@@ -17,23 +17,23 @@
     --brand-primary: 59 130 246;
     --brand-secondary: 139 69 219;
     --brand-accent: 34 197 94;
-    --brand-neon: 0 255 127;
+    --brand-neon: 0 200 83;
     
     /* Semantic Colors */
     --primary: 59 130 246;
     --primary-foreground: 255 255 255;
-    --secondary: 248 250 252;
-    --secondary-foreground: 51 65 85;
+    --secondary: 241 245 249;
+    --secondary-foreground: 30 41 59;
     
     /* Interactive Elements */
     --muted: 241 245 249;
-    --muted-foreground: 100 116 139;
+    --muted-foreground: 71 85 105;
     --accent: 239 246 255;
-    --accent-foreground: 30 64 175;
+    --accent-foreground: 15 23 42;
     
     /* Borders & Inputs */
     --border: 226 232 240;
-    --input: 226 232 240;
+    --input: 255 255 255;
     --ring: 59 130 246;
     
     /* Cards & Surfaces */
@@ -52,8 +52,8 @@
     --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
     --shadow-medium: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     --shadow-large: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    --shadow-glow: 0 0 20px hsl(var(--brand-primary) / 0.3);
-    --shadow-neon: 0 0 30px hsl(var(--brand-neon) / 0.4);
+    --shadow-glow: 0 0 20px hsl(var(--brand-primary) / 0.2);
+    --shadow-neon: 0 0 30px hsl(var(--brand-neon) / 0.3);
     
     /* Layout */
     --radius: 0.75rem;
@@ -132,7 +132,7 @@
   /* Enhanced Button Variants */
   .btn-hero {
     @apply relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold;
-    @apply bg-primary text-primary-foreground rounded-xl shadow-md;
+    @apply bg-primary text-primary-foreground rounded-xl shadow-lg;
     @apply transition-all duration-300 ease-out;
     @apply hover:shadow-glow hover:-translate-y-1 hover:scale-105;
     @apply active:scale-95;
@@ -141,34 +141,36 @@
 
   .btn-ghost {
     @apply relative inline-flex items-center justify-center px-6 py-3 font-medium;
-    @apply text-foreground bg-card border border-border rounded-lg;
+    @apply text-foreground bg-card border-2 border-border rounded-lg;
     @apply transition-all duration-300 ease-out;
     @apply hover:text-primary hover:border-primary hover:bg-accent;
     @apply active:scale-95;
+    @apply shadow-sm;
   }
 
   .btn-neon {
     @apply relative inline-flex items-center justify-center px-8 py-4 font-semibold;
-    @apply bg-gradient-to-r from-brand-neon to-brand-primary text-black;
-    @apply rounded-xl shadow-md transition-all duration-300 ease-out;
+    @apply bg-brand-neon text-black rounded-xl shadow-lg;
+    @apply transition-all duration-300 ease-out;
     @apply hover:shadow-neon hover:-translate-y-1 hover:scale-105;
     @apply active:scale-95;
-    @apply border border-brand-neon/20;
+    @apply border border-brand-neon/30;
   }
 
   /* Card Enhancements */
   .card-elevated {
-    @apply bg-card border border-border rounded-2xl p-6 shadow-md;
+    @apply bg-card border-2 border-border rounded-2xl p-6 shadow-lg;
     @apply transition-all duration-300 ease-out;
     @apply hover:shadow-xl hover:-translate-y-2;
-    @apply hover:border-primary/30;
+    @apply hover:border-primary/40;
   }
 
   .card-glass {
-    @apply bg-card/90 backdrop-blur-md border border-border/60 rounded-2xl p-6;
+    @apply bg-card border-2 border-border/80 rounded-2xl p-6;
     @apply shadow-xl transition-all duration-300 ease-out;
-    @apply hover:bg-card hover:border-border;
+    @apply hover:bg-card hover:border-primary/40;
     @apply hover:shadow-glow;
+    @apply backdrop-blur-sm;
   }
 
   .card-3d {
@@ -180,7 +182,7 @@
   /* Typography Enhancements */
   .heading-xl {
     @apply text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight;
-    @apply bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent;
+    @apply text-foreground;
   }
 
   .heading-lg {
@@ -196,7 +198,7 @@
   }
 
   .text-neon {
-    @apply text-brand-neon drop-shadow-[0_0_10px_rgba(0,255,127,0.5)];
+    @apply text-brand-neon font-semibold;
   }
 
   /* Navigation */
