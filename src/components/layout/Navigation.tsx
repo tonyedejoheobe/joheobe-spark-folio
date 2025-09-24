@@ -44,10 +44,11 @@ const Navigation: React.FC = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-lg flex items-center justify-center shadow-md">
               <span className="text-white font-bold text-lg">JT</span>
             </div>
-            <span className="text-xl font-bold text-foreground">Joheobe Tony Ede</span>
+            <span className="text-xl font-bold text-foreground hidden sm:block">Joheobe Tony Ede</span>
+            <span className="text-xl font-bold text-foreground sm:hidden">JTE</span>
           </div>
 
           {/* Desktop Navigation */}

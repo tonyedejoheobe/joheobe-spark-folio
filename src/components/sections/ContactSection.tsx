@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle, Github, Linkedin, ExternalLink } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, Github, Linkedin, ExternalLink, MessageCircle } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
 
 const ContactSection: React.FC = () => {
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -24,7 +26,7 @@ const ContactSection: React.FC = () => {
     setIsSubmitting(true);
     
     // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await new Promise(resolve => setTimeout(resolve, 1500));
     
     setIsSubmitting(false);
     setIsSubmitted(true);
@@ -34,6 +36,29 @@ const ContactSection: React.FC = () => {
       setIsSubmitted(false);
       setFormData({ name: '', email: '', subject: '', message: '' });
     }, 3000);
+  };
+
+  const sendToWhatsApp = () => {
+    const whatsappNumber = "2348060608712";
+    const message = `*New Contact Form Message*\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Subject:* ${formData.subject}\n\n*Message:*\n${formData.message}`;
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+      toast({
+        title: "Please fill all fields",
+        description: "All form fields are required before sending to WhatsApp.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    window.open(whatsappUrl, '_blank');
+    
+    toast({
+      title: "Opening WhatsApp",
+      description: "Your message is being prepared in WhatsApp.",
+    });
   };
 
   const contactInfo = [
@@ -237,23 +262,36 @@ const ContactSection: React.FC = () => {
                     />
                   </div>
 
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full btn-hero disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {isSubmitting ? (
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="flex-1 btn-hero disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {isSubmitting ? (
+                        <div className="flex items-center justify-center gap-2">
+                          <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                          Sending...
+                        </div>
+                      ) : (
+                        <div className="flex items-center justify-center gap-2">
+                          <Send className="w-5 h-5" />
+                          Send Message
+                        </div>
+                      )}
+                    </button>
+                    
+                    <button
+                      type="button"
+                      onClick={sendToWhatsApp}
+                      className="btn-neon"
+                    >
                       <div className="flex items-center justify-center gap-2">
-                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                        Sending...
+                        <MessageCircle className="w-5 h-5" />
+                        Send to WhatsApp
                       </div>
-                    ) : (
-                      <div className="flex items-center justify-center gap-2">
-                        <Send className="w-5 h-5" />
-                        Send Message
-                      </div>
-                    )}
-                  </button>
+                    </button>
+                  </div>
                 </form>
               )}
             </div>

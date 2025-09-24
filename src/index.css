@@ -48,11 +48,6 @@
     --success: 34 197 94;
     --warning: 245 158 11;
     
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--brand-primary)), hsl(var(--brand-secondary)));
-    --gradient-neon: linear-gradient(90deg, hsl(var(--brand-neon)), hsl(var(--brand-primary)));
-    --gradient-surface: linear-gradient(145deg, hsl(var(--surface)), hsl(var(--background)));
-    
     /* Shadows */
     --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
     --shadow-medium: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -60,33 +55,10 @@
     --shadow-glow: 0 0 20px hsl(var(--brand-primary) / 0.3);
     --shadow-neon: 0 0 30px hsl(var(--brand-neon) / 0.4);
     
-    /* Animation Timing */
-    --animation-fast: 0.15s;
-    --animation-normal: 0.25s;
-    --animation-slow: 0.35s;
-    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
-    --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    
     /* Layout */
     --radius: 0.75rem;
     --container-max: 1200px;
     --header-height: 4rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
@@ -160,26 +132,28 @@
   /* Enhanced Button Variants */
   .btn-hero {
     @apply relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold;
-    @apply bg-primary text-primary-foreground rounded-xl shadow-lg;
+    @apply bg-primary text-primary-foreground rounded-xl shadow-md;
     @apply transition-all duration-300 ease-out;
     @apply hover:shadow-glow hover:-translate-y-1 hover:scale-105;
     @apply active:scale-95;
+    @apply border border-primary/20;
   }
 
   .btn-ghost {
     @apply relative inline-flex items-center justify-center px-6 py-3 font-medium;
-    @apply text-muted-foreground border border-border rounded-lg;
+    @apply text-foreground bg-card border border-border rounded-lg;
     @apply transition-all duration-300 ease-out;
-    @apply hover:text-foreground hover:border-primary hover:bg-accent;
+    @apply hover:text-primary hover:border-primary hover:bg-accent;
     @apply active:scale-95;
   }
 
   .btn-neon {
     @apply relative inline-flex items-center justify-center px-8 py-4 font-semibold;
-    @apply bg-gradient-to-r from-brand-neon to-brand-primary text-primary-foreground;
-    @apply rounded-xl shadow-lg transition-all duration-300 ease-out;
+    @apply bg-gradient-to-r from-brand-neon to-brand-primary text-black;
+    @apply rounded-xl shadow-md transition-all duration-300 ease-out;
     @apply hover:shadow-neon hover:-translate-y-1 hover:scale-105;
     @apply active:scale-95;
+    @apply border border-brand-neon/20;
   }
 
   /* Card Enhancements */
@@ -187,12 +161,14 @@
     @apply bg-card border border-border rounded-2xl p-6 shadow-md;
     @apply transition-all duration-300 ease-out;
     @apply hover:shadow-xl hover:-translate-y-2;
+    @apply hover:border-primary/30;
   }
 
   .card-glass {
-    @apply bg-card/80 backdrop-blur-md border border-border/50 rounded-2xl p-6;
+    @apply bg-card/90 backdrop-blur-md border border-border/60 rounded-2xl p-6;
     @apply shadow-xl transition-all duration-300 ease-out;
-    @apply hover:bg-card/90 hover:border-border;
+    @apply hover:bg-card hover:border-border;
+    @apply hover:shadow-glow;
   }
 
   .card-3d {
@@ -240,6 +216,15 @@
   .nav-link.active::after,
   .nav-link:hover::after {
     @apply w-full;
+  }
+
+  /* Text Utilities for Better Contrast */
+  .text-contrast {
+    @apply text-foreground;
+  }
+  
+  .text-muted-contrast {
+    @apply text-muted-foreground;
   }
 
   /* Animations */
