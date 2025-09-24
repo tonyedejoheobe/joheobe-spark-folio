@@ -1,5 +1,6 @@
 import React from 'react';
 import { ExternalLink, Github, Code, Layers, Zap, Users } from 'lucide-react';
+import AnimatedDiv from '@/components/ui/AnimatedDiv';
 
 const ProjectsSection: React.FC = () => {
   const projectCategories = [
@@ -78,21 +79,21 @@ const ProjectsSection: React.FC = () => {
     <section id="projects" className="py-20 px-6">
       <div className="container mx-auto max-w-6xl">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-slide-up">
+        <AnimatedDiv animationClass="animate-slide-up" className="text-center mb-16">
           <h2 className="heading-lg mb-4">Projects & Portfolio</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Showcasing a blend of customer support solutions and frontend development projects, 
             each designed to solve real-world problems and enhance user experiences
           </p>
-        </div>
+        </AnimatedDiv>
 
         {/* Project Categories */}
         <div className="space-y-12">
           {projectCategories.map((category, categoryIndex) => (
-            <div 
+            <AnimatedDiv
               key={categoryIndex}
-              className="animate-slide-up"
-              style={{ animationDelay: `${categoryIndex * 0.2}s` }}
+              animationClass="animate-slide-up"
+              delay={categoryIndex * 200}
             >
               {/* Category Header */}
               <div className="flex items-center gap-4 mb-8">
@@ -112,10 +113,11 @@ const ProjectsSection: React.FC = () => {
               {/* Projects Grid */}
               <div className="grid md:grid-cols-2 gap-6">
                 {category.projects.map((project, projectIndex) => (
-                  <div 
+                  <AnimatedDiv
                     key={projectIndex}
-                    className="card-elevated group hover:border-brand-primary/20 card-3d"
-                    style={{ animationDelay: `${(categoryIndex * 0.2) + (projectIndex * 0.1)}s` }}
+                    animationClass="animate-slide-up"
+                    delay={(categoryIndex * 200) + (projectIndex * 100)}
+                    className="card-elevated group hover:border-brand-primary/20 hover:shadow-neon card-3d"
                   >
                     {/* Project Header */}
                     <div className="flex items-start justify-between mb-4">
@@ -155,15 +157,15 @@ const ProjectsSection: React.FC = () => {
                         <span>Demo</span>
                       </button>
                     </div>
-                  </div>
+                  </AnimatedDiv>
                 ))}
               </div>
-            </div>
+            </AnimatedDiv>
           ))}
         </div>
 
         {/* Call to Action */}
-        <div className="text-center mt-16 animate-slide-up" style={{ animationDelay: '0.8s' }}>
+        <AnimatedDiv animationClass="animate-slide-up" delay={800} className="text-center mt-16">
           <div className="card-glass max-w-2xl mx-auto">
             <Layers className="w-16 h-16 text-brand-primary mx-auto mb-4" />
             <h3 className="text-2xl font-semibold text-foreground mb-4">
@@ -191,7 +193,7 @@ const ProjectsSection: React.FC = () => {
               </a>
             </div>
           </div>
-        </div>
+        </AnimatedDiv>
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import { GraduationCap, Calendar, MapPin, Award, BookOpen, Users } from 'lucide-react';
+import AnimatedDiv from '@/components/ui/AnimatedDiv';
 
 const EducationSection: React.FC = () => {
   const education = {
@@ -43,16 +44,16 @@ const EducationSection: React.FC = () => {
     <section className="py-20 px-6 bg-surface/30">
       <div className="container mx-auto max-w-4xl">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-slide-up">
+        <AnimatedDiv animationClass="animate-slide-up" className="text-center mb-16">
           <h2 className="heading-lg mb-4">Education & Learning</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Combining formal education in software engineering with continuous 
             professional development and hands-on industry experience
           </p>
-        </div>
+        </AnimatedDiv>
 
         {/* Main Education */}
-        <div className="card-elevated mb-12 animate-slide-up">
+        <AnimatedDiv animationClass="animate-slide-up" delay={200} className="card-elevated mb-12">
           <div className="flex items-start gap-6">
             <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl flex items-center justify-center shadow-lg">
               <GraduationCap className="w-8 h-8 text-white" />
@@ -100,20 +101,22 @@ const EducationSection: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
+        </AnimatedDiv>
 
         {/* Professional Development */}
-        <div className="mb-8 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+        <AnimatedDiv animationClass="animate-slide-up" delay={300} className="mb-8">
           <h3 className="text-xl font-semibold text-foreground mb-6 flex items-center gap-3">
             <Award className="w-6 h-6 text-brand-secondary" />
             Professional Development & Certifications
           </h3>
-        </div>
+        </AnimatedDiv>
 
-        <div className="grid gap-6 animate-slide-up" style={{ animationDelay: '0.3s' }}>
+        <div className="grid gap-6">
           {certifications.map((cert, index) => (
-            <div 
+            <AnimatedDiv
               key={index}
+              animationClass="animate-slide-up"
+              delay={400 + index * 100}
               className="card-glass group hover:border-brand-primary/20"
             >
               <div className="flex items-start gap-4">
@@ -138,12 +141,12 @@ const EducationSection: React.FC = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </AnimatedDiv>
           ))}
         </div>
 
         {/* Continuous Learning */}
-        <div className="text-center mt-16 animate-slide-up" style={{ animationDelay: '0.5s' }}>
+        <AnimatedDiv animationClass="animate-slide-up" delay={500} className="text-center mt-16">
           <div className="card-elevated max-w-2xl mx-auto">
             <Users className="w-16 h-16 text-brand-primary mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-foreground mb-3">
@@ -154,7 +157,7 @@ const EducationSection: React.FC = () => {
               best practices, and emerging technologies. Always learning, always growing, always improving.
             </p>
           </div>
-        </div>
+        </AnimatedDiv>
       </div>
     </section>
   );
