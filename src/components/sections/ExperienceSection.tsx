@@ -1,6 +1,7 @@
 import React from 'react';
 import { Calendar, MapPin, TrendingUp, Code } from 'lucide-react';
 import AnimatedDiv from '@/components/ui/AnimatedDiv';
+import ExpandableText from '@/components/ui/ExpandableText';
 
 
 const ExperienceSection: React.FC = () => {
@@ -108,14 +109,11 @@ const ExperienceSection: React.FC = () => {
                       <TrendingUp className="w-4 h-4 text-brand-neon" />
                       Key Achievements
                     </h5>
-                    <ul className="space-y-2">
-                      {exp.achievements.map((achievement, achIndex) => (
-                        <li key={achIndex} className="flex items-start gap-3 text-muted-foreground">
-                          <div className="w-1.5 h-1.5 bg-brand-neon rounded-full mt-2 flex-shrink-0"></div>
-                          <span className="leading-relaxed">{achievement}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    <ExpandableText 
+                      text={exp.achievements.map((achievement, achIndex) => `• ${achievement}`).join('\n')}
+                      maxLength={150}
+                      className="whitespace-pre-line"
+                    />
                   </div>
 
                   {/* Technologies */}

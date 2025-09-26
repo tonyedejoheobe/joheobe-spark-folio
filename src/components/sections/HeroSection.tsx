@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, Download, Github, Linkedin, Mail } from 'lucide-react';
+import ExpandableText from '@/components/ui/ExpandableText';
 
 const HeroSection: React.FC = () => {
   const scrollToProjects = () => {
@@ -42,10 +43,13 @@ const HeroSection: React.FC = () => {
               </div>
             </div>
 
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl animate-slide-up" style={{ animationDelay: '0.4s' }}>
-              Passionate about building responsive web applications, solving complex technical issues, 
-              and enhancing customer experiences through innovative solutions and empathetic support.
-            </p>
+            <div className="animate-slide-up max-w-2xl" style={{ animationDelay: '0.4s' }}>
+              <ExpandableText 
+                text="Passionate about building responsive web applications, solving complex technical issues, and enhancing customer experiences through innovative solutions and empathetic support."
+                maxLength={120}
+                className="text-lg"
+              />
+            </div>
 
             <div className="flex flex-col sm:flex-row gap-4 animate-slide-up" style={{ animationDelay: '0.5s' }}>
               <button 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { GraduationCap, Calendar, MapPin, Award, BookOpen, Users } from 'lucide-react';
 import AnimatedDiv from '@/components/ui/AnimatedDiv';
+import ExpandableText from '@/components/ui/ExpandableText';
 
 const EducationSection: React.FC = () => {
   const education = {
@@ -81,9 +82,11 @@ const EducationSection: React.FC = () => {
                 </div>
               </div>
 
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                {education.description}
-              </p>
+              <ExpandableText 
+                text={education.description}
+                maxLength={120}
+                className="mb-6"
+              />
 
               <div>
                 <h5 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
@@ -136,9 +139,10 @@ const EducationSection: React.FC = () => {
                   <p className="text-brand-secondary font-medium mb-2">
                     {cert.provider}
                   </p>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {cert.description}
-                  </p>
+                  <ExpandableText 
+                    text={cert.description}
+                    maxLength={100}
+                  />
                 </div>
               </div>
             </AnimatedDiv>
