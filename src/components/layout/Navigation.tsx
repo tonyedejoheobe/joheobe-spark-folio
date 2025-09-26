@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useTheme } from '@/contexts/ThemeContext';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 const Navigation: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isNavVisible, setIsNavVisible] = useState(true);
-  const lastScrollY = useRef(0);
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
@@ -14,17 +15,29 @@ const Navigation: React.FC = () => {
       const currentScrollY = window.scrollY;
       setIsScrolled(currentScrollY > 20);
 
-      // Hide navbar on scroll down, show on scroll up
-      if (currentScrollY > lastScrollY.current && currentScrollY > 80) { // 80 is header height
-        setIsNavVisible(false);
-      } else {
-        setIsNavVisible(true);
+      // Show navbar while scrolling
+      setIsNavVisible(true);
+
+      // Clear existing timeout
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
       }
-      lastScrollY.current = currentScrollY;
+
+      // Hide navbar after scrolling stops (only on desktop)
+      if (currentScrollY > 80) {
+        scrollTimeoutRef.current = setTimeout(() => {
+          setIsNavVisible(false);
+        }, 2000); // Hide after 2 seconds of no scrolling
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+    };
   }, []);
 
   const navigationLinks = [
@@ -88,7 +101,7 @@ const Navigation: React.FC = () => {
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button with Sidebar */}
           <div className="md:hidden flex items-center space-x-4">
             <button
               onClick={toggleTheme}
@@ -102,36 +115,63 @@ const Navigation: React.FC = () => {
               )}
             </button>
             
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-lg bg-card border border-border hover:bg-accent transition-colors duration-200 shadow-sm"
-              aria-label="Toggle menu"
-            >
-              {isMenuOpen ? (
-                <X className="w-6 h-6 text-foreground" />
-              ) : (
-                <Menu className="w-6 h-6 text-foreground" />
-              )}
-            </button>
+            <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+              <SheetTrigger asChild>
+                <button
+                  className="p-2 rounded-lg bg-card border border-border hover:bg-accent transition-colors duration-200 shadow-sm"
+                  aria-label="Toggle menu"
+                >
+                  <Menu className="w-6 h-6 text-foreground" />
+                </button>
+              </SheetTrigger>
+              <SheetContent side="left" className="w-80 bg-background border-border">
+                <div className="flex flex-col h-full">
+                  {/* Logo in Sidebar */}
+                  <div className="flex items-center space-x-2 mb-8 pt-4">
+                    <div className="w-10 h-10 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-lg flex items-center justify-center shadow-md">
+                      <span className="text-white font-bold text-lg">JT</span>
+                    </div>
+                    <span className="text-lg font-bold text-foreground">Joheobe Tony Ede</span>
+                  </div>
+
+                  {/* Navigation Links */}
+                  <nav className="flex flex-col space-y-2 flex-1">
+                    {navigationLinks.map((link) => (
+                      <button
+                        key={link.href}
+                        onClick={() => scrollToSection(link.href)}
+                        className="text-left px-4 py-3 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent transition-all duration-200 text-lg"
+                      >
+                        {link.label}
+                      </button>
+                    ))}
+                  </nav>
+
+                  {/* Theme Toggle in Sidebar */}
+                  <div className="border-t border-border pt-4 mt-4">
+                    <button
+                      onClick={toggleTheme}
+                      className="flex items-center space-x-3 w-full px-4 py-3 rounded-lg bg-card border border-border hover:bg-accent transition-colors duration-200"
+                      aria-label="Toggle theme"
+                    >
+                      {theme === 'light' ? (
+                        <>
+                          <Moon className="w-5 h-5 text-foreground" />
+                          <span className="text-foreground">Dark Mode</span>
+                        </>
+                      ) : (
+                        <>
+                          <Sun className="w-5 h-5 text-foreground" />
+                          <span className="text-foreground">Light Mode</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden mt-4 py-4 border-t border-border animate-slide-up">
-            <div className="flex flex-col space-y-4">
-              {navigationLinks.map((link) => (
-                <button
-                  key={link.href}
-                  onClick={() => scrollToSection(link.href)}
-                  className="text-left px-2 py-2 text-muted-foreground hover:text-foreground transition-colors duration-200"
-                >
-                  {link.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
       </nav>
     </header>
   );
