@@ -39,8 +39,8 @@ const ProjectsSection: React.FC = () => {
         {
           title: "E-commerce Platform",
           description: "Full-featured online store with modern UI/UX and payment integration",
-          tech: ["Next.js", "Stripe", "API"],
-          status: "Planned"
+          tech: ["React.js", "Tailwind CSS", "API"],
+          status: "Developed"
         }
       ]
     },
@@ -70,7 +70,8 @@ const ProjectsSection: React.FC = () => {
     switch (status) {
       case 'In Development': return 'bg-brand-neon/10 text-brand-neon border-brand-neon/20';
       case 'Coming Soon': return 'bg-brand-primary/10 text-brand-primary border-brand-primary/20';
-      case 'In Planning': return 'bg-brand-secondary/10 text-brand-secondary border-brand-secondary/20';
+  case 'In Planning': return 'bg-brand-secondary/10 text-brand-secondary border-brand-secondary/20';
+  case 'Developed': return 'bg-green-100 text-green-700 border-green-300';
       default: return 'bg-muted text-muted-foreground border-border';
     }
   };
@@ -148,14 +149,34 @@ const ProjectsSection: React.FC = () => {
 
                     {/* Project Actions */}
                     <div className="flex gap-3 opacity-60 group-hover:opacity-100 transition-opacity">
-                      <button className="flex items-center gap-2 px-4 py-2 text-sm text-muted-foreground hover:text-brand-primary transition-colors">
-                        <Github className="w-4 h-4" />
-                        <span>Code</span>
-                      </button>
-                      <button className="flex items-center gap-2 px-4 py-2 text-sm text-muted-foreground hover:text-brand-primary transition-colors">
-                        <ExternalLink className="w-4 h-4" />
-                        <span>Demo</span>
-                      </button>
+                      {/* Code button: only link for E-commerce Platform */}
+                      {project.title === "E-commerce Platform" ? (
+                        <a href="https://github.com/tonyedejoheobe/ttech-techwave" target="_blank" rel="noopener noreferrer">
+                          <button className="flex items-center gap-2 px-4 py-2 text-sm text-muted-foreground hover:text-brand-primary transition-colors">
+                            <Github className="w-4 h-4" />
+                            <span>Code</span>
+                          </button>
+                        </a>
+                      ) : (
+                        <button className="flex items-center gap-2 px-4 py-2 text-sm text-muted-foreground cursor-not-allowed opacity-50" disabled>
+                          <Github className="w-4 h-4" />
+                          <span>Code</span>
+                        </button>
+                      )}
+                      {/* Demo button: only link for E-commerce Platform */}
+                      {project.title === "E-commerce Platform" ? (
+                        <a href="https://t-tech-laptops.netlify.app/" target="_blank" rel="noopener noreferrer">
+                          <button className="flex items-center gap-2 px-4 py-2 text-sm text-muted-foreground hover:text-brand-primary transition-colors">
+                            <ExternalLink className="w-4 h-4" />
+                            <span>Demo</span>
+                          </button>
+                        </a>
+                      ) : (
+                        <button className="flex items-center gap-2 px-4 py-2 text-sm text-muted-foreground hover:text-brand-primary transition-colors">
+                          <ExternalLink className="w-4 h-4" />
+                          <span>Demo</span>
+                        </button>
+                      )}
                     </div>
                   </AnimatedDiv>
                 ))}
