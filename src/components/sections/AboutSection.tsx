@@ -1,6 +1,7 @@
 import React from 'react';
 import { MapPin, ExternalLink, Award, Users, Code, Headphones } from 'lucide-react';
 import AnimatedDiv from '@/components/ui/AnimatedDiv';
+import ExpandableText from '@/components/ui/ExpandableText';
 
 const AboutSection: React.FC = () => {
   const highlights = [
@@ -45,23 +46,10 @@ const AboutSection: React.FC = () => {
           <AnimatedDiv animationClass="animate-slide-in-left" delay={200}>
             <div className="space-y-6">
               <h3 className="heading-md text-gradient">My Journey</h3>
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
-                <p>
-                  With a strong foundation in Software Engineering and hands-on experience in both
-                  customer support and frontend development, I bridge the gap between technical
-                  solutions and user experience.
-                </p>
-                <p>
-                  My expertise in problem-solving, customer empathy, and technical documentation
-                  has enabled me to not only resolve complex customer issues but also contribute
-                  to product improvements through cross-team collaboration.
-                </p>
-                <p>
-                  Based in Jikwoyi, Abuja, Nigeria, I'm passionate about leveraging technology
-                  to create meaningful connections between businesses and their customers while
-                  building robust, user-friendly web applications.
-                </p>
-              </div>
+              <ExpandableText 
+                text="With a strong foundation in Software Engineering and hands-on experience in both customer support and frontend development, I bridge the gap between technical solutions and user experience. My expertise in problem-solving, customer empathy, and technical documentation has enabled me to not only resolve complex customer issues but also contribute to product improvements through cross-team collaboration. Based in Jikwoyi, Abuja, Nigeria, I'm passionate about leveraging technology to create meaningful connections between businesses and their customers while building robust, user-friendly web applications."
+                maxLength={180}
+              />
 
               {/* Location & Portfolio Link */}
               <div className="flex flex-col sm:flex-row gap-4 pt-4">

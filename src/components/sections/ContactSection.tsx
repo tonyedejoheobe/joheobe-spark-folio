@@ -22,43 +22,35 @@ const ContactSection: React.FC = () => {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset form after showing success
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 3000);
-  };
-
-  const sendToWhatsApp = () => {
-    const whatsappNumber = "2348060608712";
-    const message = `*New Contact Form Message*\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Subject:* ${formData.subject}\n\n*Message:*\n${formData.message}`;
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
     
     if (!formData.name || !formData.email || !formData.subject || !formData.message) {
       toast({
         title: "Please fill all fields",
-        description: "All form fields are required before sending to WhatsApp.",
+        description: "All form fields are required before sending email.",
         variant: "destructive",
       });
       return;
     }
+
+    // Create mailto link with form data
+    const emailBody = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
+    const mailtoLink = `mailto:edejoheobe@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(emailBody)}`;
     
-    window.open(whatsappUrl, '_blank');
+    // Open default email client
+    window.location.href = mailtoLink;
     
+    // Show success message and reset form
+    setIsSubmitted(true);
+    setTimeout(() => {
+      setIsSubmitted(false);
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    }, 3000);
+
     toast({
-      title: "Opening WhatsApp",
-      description: "Your message is being prepared in WhatsApp.",
+      title: "Email client opened",
+      description: "Your default email client should now open with the message.",
     });
   };
 
@@ -116,14 +108,14 @@ const ContactSection: React.FC = () => {
           </p>
         </AnimatedDiv>
 
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
           {/* Contact Information */}
-          <AnimatedDiv animationClass="animate-slide-in-left" delay={200} className="space-y-8">
+          <AnimatedDiv animationClass="animate-slide-in-left" delay={200} className="space-y-6 lg:space-y-8">
             <div>
-              <h3 className="text-2xl font-semibold text-foreground mb-6">
+              <h3 className="text-xl lg:text-2xl font-semibold text-foreground mb-4 lg:mb-6">
                 Get in Touch
               </h3>
-              <p className="text-muted-foreground leading-relaxed mb-8">
+              <p className="text-sm lg:text-base text-muted-foreground leading-relaxed mb-6 lg:mb-8">
                 Whether you're looking for customer support expertise, frontend development skills, 
                 or someone who can bridge the gap between technical solutions and user experience, 
                 let's start a conversation.
@@ -131,7 +123,7 @@ const ContactSection: React.FC = () => {
             </div>
 
             {/* Contact Info Cards */}
-            <div className="space-y-4">
+            <div className="space-y-3 lg:space-y-4">
               {contactInfo.map((info, index) => (
                 <a
                   key={index}
@@ -140,15 +132,15 @@ const ContactSection: React.FC = () => {
                     info.href === '#' ? 'cursor-default' : 'hover:shadow-glow transition-all duration-300'
                   }`}
                 >
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <info.icon className="w-6 h-6 text-white" />
+                  <div className="flex items-center gap-3 lg:gap-4">
+                    <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <info.icon className="w-5 h-5 lg:w-6 lg:h-6 text-white" />
                     </div>
-                    <div>
-                      <h4 className="text-sm font-semibold text-muted-foreground mb-1">
+                    <div className="min-w-0 flex-1">
+                      <h4 className="text-xs lg:text-sm font-semibold text-muted-foreground mb-1">
                         {info.label}
                       </h4>
-                      <p className="text-foreground group-hover:text-brand-primary transition-colors">
+                      <p className="text-sm lg:text-base text-foreground group-hover:text-brand-primary transition-colors break-words">
                         {info.value}
                       </p>
                     </div>
@@ -158,21 +150,21 @@ const ContactSection: React.FC = () => {
             </div>
 
             {/* Social Links */}
-            <div className="pt-8">
-              <h4 className="text-lg font-semibold text-foreground mb-4">
+            <div className="pt-6 lg:pt-8">
+              <h4 className="text-base lg:text-lg font-semibold text-foreground mb-3 lg:mb-4">
                 Connect on Social
               </h4>
-              <div className="flex gap-4">
+              <div className="flex gap-3 lg:gap-4">
                 {socialLinks.map((social, index) => (
                   <a
                     key={index}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`p-4 rounded-xl bg-card border border-border transition-all duration-300 hover:border-brand-primary hover:shadow-glow hover:scale-110 ${social.color}`}
+                    className={`p-3 lg:p-4 rounded-xl bg-card border border-border transition-all duration-300 hover:border-brand-primary hover:shadow-glow hover:scale-110 ${social.color}`}
                     aria-label={social.label}
                   >
-                    <social.icon className="w-6 h-6" />
+                    <social.icon className="w-5 h-5 lg:w-6 lg:h-6" />
                   </a>
                 ))}
               </div>
@@ -182,25 +174,25 @@ const ContactSection: React.FC = () => {
           {/* Contact Form */}
           <AnimatedDiv animationClass="animate-slide-in-right" delay={400}>
             <div className="card-elevated">
-              <h3 className="text-2xl font-semibold text-foreground mb-6">
+              <h3 className="text-xl lg:text-2xl font-semibold text-foreground mb-4 lg:mb-6">
                 Send a Message
               </h3>
 
               {isSubmitted ? (
-                <div className="text-center py-12">
-                  <CheckCircle className="w-16 h-16 text-brand-neon mx-auto mb-4" />
-                  <h4 className="text-xl font-semibold text-foreground mb-2">
-                    Message Sent Successfully!
+                <div className="text-center py-8 lg:py-12">
+                  <CheckCircle className="w-12 h-12 lg:w-16 lg:h-16 text-brand-neon mx-auto mb-3 lg:mb-4" />
+                  <h4 className="text-lg lg:text-xl font-semibold text-foreground mb-2">
+                    Email Client Opened!
                   </h4>
-                  <p className="text-muted-foreground">
-                    Thank you for reaching out. I'll get back to you soon.
+                  <p className="text-sm lg:text-base text-muted-foreground">
+                    Your email client should open with the message ready to send.
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <form onSubmit={handleSubmit} className="space-y-4 lg:space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                      <label htmlFor="name" className="block text-xs lg:text-sm font-medium text-foreground mb-1 lg:mb-2">
                         Full Name
                       </label>
                       <input
@@ -210,12 +202,12 @@ const ContactSection: React.FC = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all duration-200"
+                        className="w-full px-3 py-2 lg:px-4 lg:py-3 text-sm lg:text-base bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all duration-200"
                         placeholder="Your full name"
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                      <label htmlFor="email" className="block text-xs lg:text-sm font-medium text-foreground mb-1 lg:mb-2">
                         Email Address
                       </label>
                       <input
@@ -225,14 +217,14 @@ const ContactSection: React.FC = () => {
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all duration-200"
+                        className="w-full px-3 py-2 lg:px-4 lg:py-3 text-sm lg:text-base bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all duration-200"
                         placeholder="your.email@example.com"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
+                    <label htmlFor="subject" className="block text-xs lg:text-sm font-medium text-foreground mb-1 lg:mb-2">
                       Subject
                     </label>
                     <input
@@ -242,13 +234,13 @@ const ContactSection: React.FC = () => {
                       value={formData.subject}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all duration-200"
+                      className="w-full px-3 py-2 lg:px-4 lg:py-3 text-sm lg:text-base bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all duration-200"
                       placeholder="What's this about?"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                    <label htmlFor="message" className="block text-xs lg:text-sm font-medium text-foreground mb-1 lg:mb-2">
                       Message
                     </label>
                     <textarea
@@ -257,42 +249,21 @@ const ContactSection: React.FC = () => {
                       value={formData.message}
                       onChange={handleInputChange}
                       required
-                      rows={5}
-                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all duration-200 resize-none"
+                      rows={4}
+                      className="w-full px-3 py-2 lg:px-4 lg:py-3 text-sm lg:text-base bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all duration-200 resize-none lg:rows-5"
                       placeholder="Your message here..."
                     />
                   </div>
 
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="flex-1 btn-hero disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {isSubmitting ? (
-                        <div className="flex items-center justify-center gap-2">
-                          <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                          Sending...
-                        </div>
-                      ) : (
-                        <div className="flex items-center justify-center gap-2">
-                          <Send className="w-5 h-5" />
-                          Send Message
-                        </div>
-                      )}
-                    </button>
-                    
-                    <button
-                      type="button"
-                      onClick={sendToWhatsApp}
-                      className="btn-neon"
-                    >
-                      <div className="flex items-center justify-center gap-2">
-                        <MessageCircle className="w-5 h-5" />
-                        Send to WhatsApp
-                      </div>
-                    </button>
-                  </div>
+                  <button
+                    type="submit"
+                    className="w-full btn-hero"
+                  >
+                    <div className="flex items-center justify-center gap-2">
+                      <Send className="w-4 h-4 lg:w-5 lg:h-5" />
+                      <span className="text-sm lg:text-base">Send Email</span>
+                    </div>
+                  </button>
                 </form>
               )}
             </div>
@@ -300,12 +271,12 @@ const ContactSection: React.FC = () => {
         </div>
 
         {/* Footer Note */}
-        <AnimatedDiv animationClass="animate-slide-up" delay={500} className="text-center mt-16">
+        <AnimatedDiv animationClass="animate-slide-up" delay={500} className="text-center mt-12 lg:mt-16">
           <div className="card-glass max-w-2xl mx-auto">
-            <h3 className="text-lg font-semibold text-foreground mb-3">
+            <h3 className="text-base lg:text-lg font-semibold text-foreground mb-2 lg:mb-3">
               Open to Opportunities
             </h3>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-sm lg:text-base text-muted-foreground leading-relaxed">
               I'm always interested in hearing about new opportunities, interesting projects, 
               or collaborations. Whether it's a full-time position, freelance work, or just a 
               chat about technology and customer experience, feel free to reach out.
