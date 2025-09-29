@@ -70,7 +70,7 @@ const AboutSection: React.FC = () => {
                   <span>Jikwoyi, Abuja, Nigeria</span>
                 </div>
                 <a
-                  href="https://codegeek-newportfolio.netlify.app"
+                  href="https://codegeek-oldportfolio.netlify.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-brand-primary hover:text-brand-secondary transition-colors"
