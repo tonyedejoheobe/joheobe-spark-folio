@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle, Github, Linkedin, ExternalLink, MessageCircle } from 'lucide-react';
+import WhatsappIcon from '@/components/ui/WhatsappIcon';
 import { useToast } from '@/hooks/use-toast';
 import AnimatedDiv from '@/components/ui/AnimatedDiv';
 
@@ -24,33 +25,26 @@ const ContactSection: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
     if (!formData.name || !formData.email || !formData.subject || !formData.message) {
       toast({
         title: "Please fill all fields",
-        description: "All form fields are required before sending email.",
+        description: "All form fields are required before sending message.",
         variant: "destructive",
       });
       return;
     }
-
-    // Create mailto link with form data
-    const emailBody = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
-    const mailtoLink = `mailto:edejoheobe@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(emailBody)}`;
-    
-    // Open default email client
-    window.location.href = mailtoLink;
-    
-    // Show success message and reset form
+    // WhatsApp message format
+    const whatsappMessage = `Name: ${formData.name}%0AEmail: ${formData.email}%0ASubject: ${formData.subject}%0AMessage: ${formData.message}`;
+    const whatsappUrl = `https://wa.me/2348060608712?text=${whatsappMessage}`;
+    window.open(whatsappUrl, '_blank');
     setIsSubmitted(true);
     setTimeout(() => {
       setIsSubmitted(false);
       setFormData({ name: '', email: '', subject: '', message: '' });
     }, 3000);
-
     toast({
-      title: "Email client opened",
-      description: "Your default email client should now open with the message.",
+      title: "WhatsApp opened",
+      description: "Your WhatsApp should now open with the message ready to send.",
     });
   };
 
@@ -257,12 +251,10 @@ const ContactSection: React.FC = () => {
 
                   <button
                     type="submit"
-                    className="w-full btn-hero"
+                    className="w-full btn-hero bg-green-500 hover:bg-green-600 text-white flex items-center justify-center gap-2"
                   >
-                    <div className="flex items-center justify-center gap-2">
-                      <Send className="w-4 h-4 lg:w-5 lg:h-5" />
-                      <span className="text-sm lg:text-base">Send Email</span>
-                    </div>
+                    <WhatsappIcon className="w-5 h-5 lg:w-6 lg:h-6" />
+                    <span className="text-sm lg:text-base font-semibold">Send WhatsApp</span>
                   </button>
                 </form>
               )}
