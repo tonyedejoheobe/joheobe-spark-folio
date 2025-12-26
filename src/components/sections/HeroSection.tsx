@@ -35,7 +35,7 @@ const HeroSection: React.FC = () => {
               </h1>
               <div className="space-y-2">
                 <h2 className="text-2xl md:text-3xl font-semibold text-gradient animate-slide-up" style={{ animationDelay: '0.2s' }}>
-                  Customer Support Specialist
+                  Technical Support Specialist
                 </h2>
                 <h3 className="text-xl md:text-2xl font-medium text-muted-foreground animate-slide-up" style={{ animationDelay: '0.3s' }}>
                   & Junior Frontend Developer
