@@ -44,7 +44,7 @@ const ExperienceSection: React.FC = () => {
         {/* Section Header */}
         <AnimatedDiv animationClass="animate-slide-up" className="text-center mb-10 sm:mb-16">
           <h2 className="heading-lg mb-4">Professional Experience</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-xl text-muted-foreground max-w-3xl mx-auto">
             A proven track record of delivering exceptional customer support while 
             contributing to product development and process optimization
           </p>

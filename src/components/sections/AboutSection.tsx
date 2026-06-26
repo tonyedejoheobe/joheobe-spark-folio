@@ -34,7 +34,7 @@ const AboutSection: React.FC = () => {
         <AnimatedDiv animationClass="animate-slide-up">
           <div className="text-center mb-10 sm:mb-16">
             <h2 className="heading-lg mb-4">About Me</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-base sm:text-xl text-muted-foreground max-w-3xl mx-auto">
               Combining technical expertise with customer empathy to deliver exceptional
               solutions and experiences
             </p>
@@ -99,7 +99,7 @@ const AboutSection: React.FC = () => {
         </div>
 
         {/* Stats Row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-10 sm:mt-16 pt-16 border-t border-border">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 mt-10 sm:mt-16 pt-16 border-t border-border">
           {[
             { value: "95%", label: "First Call Resolution" },
             { value: "30%", label: "Faster Resolution Time" },

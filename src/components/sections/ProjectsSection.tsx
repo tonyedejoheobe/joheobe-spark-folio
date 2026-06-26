@@ -82,7 +82,7 @@ const ProjectsSection: React.FC = () => {
         {/* Section Header */}
         <AnimatedDiv animationClass="animate-slide-up" className="text-center mb-10 sm:mb-16">
           <h2 className="heading-lg mb-4">Projects & Portfolio</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-xl text-muted-foreground max-w-3xl mx-auto">
             Showcasing a blend of customer support solutions and frontend development projects, 
             each designed to solve real-world problems and enhance user experiences
           </p>

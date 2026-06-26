@@ -52,7 +52,7 @@ const EducationSection: React.FC = () => {
         {/* Section Header */}
         <AnimatedDiv animationClass="animate-slide-up" className="text-center mb-10 sm:mb-16">
           <h2 className="heading-lg mb-4">Education & Learning</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-xl text-muted-foreground max-w-3xl mx-auto">
             Combining formal education in software engineering with continuous 
             professional development and hands-on industry experience
           </p>
