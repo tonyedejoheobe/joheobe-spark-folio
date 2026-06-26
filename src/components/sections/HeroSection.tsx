@@ -99,7 +99,7 @@ const HeroSection: React.FC = () => {
 
           {/* 3D Visual Element */}
           <div className="relative flex items-center justify-center animate-slide-in-right">
-            <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
+            <div className="relative w-56 h-56 sm:w-80 sm:h-80 lg:w-96 lg:h-96 mx-auto">
               {/* Floating code blocks */}
               <div className="absolute top-0 right-0 bg-card border border-border rounded-lg p-3 sm:p-4 shadow-lg animate-float card-3d">
                 <pre className="text-xs sm:text-sm text-brand-primary font-mono">
