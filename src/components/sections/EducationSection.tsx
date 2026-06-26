@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { GraduationCap, Calendar, MapPin, Award, BookOpen, Users, ExternalLink, X } from 'lucide-react';
 import AnimatedDiv from '@/components/ui/AnimatedDiv';
 import ExpandableText from '@/components/ui/ExpandableText';
-import certificateAsset from '@/assets/certificate-software-engineering.jpeg.asset.json';
+import certificateImg from '@/assets/certificate-software-engineering.jpeg';
 
 const EducationSection: React.FC = () => {
   const [isCertOpen, setIsCertOpen] = useState(false);
