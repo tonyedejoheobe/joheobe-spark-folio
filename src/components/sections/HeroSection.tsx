@@ -27,8 +27,8 @@ const HeroSection: React.FC = () => {
           {/* Text Content */}
           <div className="text-center lg:text-left space-y-8 animate-slide-in-left">
             <div className="space-y-4">
-              <p className="text-lg text-brand-primary font-semibold animate-slide-up">
-                👋 Hello, I'm
+              <p className="text-sm tracking-[0.2em] uppercase text-brand-primary font-semibold animate-slide-up">
+                Welcome
               </p>
               <h1 className="heading-xl animate-slide-up" style={{ animationDelay: '0.1s' }}>
                 Joheobe Tony Ede
