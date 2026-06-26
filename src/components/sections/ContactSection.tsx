@@ -91,10 +91,10 @@ const ContactSection: React.FC = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 px-6 bg-surface/50">
+    <section id="contact" className="py-12 sm:py-20 px-4 sm:px-6 bg-surface/50">
       <div className="container mx-auto max-w-6xl">
         {/* Section Header */}
-        <AnimatedDiv animationClass="animate-slide-up" className="text-center mb-16">
+        <AnimatedDiv animationClass="animate-slide-up" className="text-center mb-10 sm:mb-16">
           <h2 className="heading-lg mb-4">Let's Connect</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Ready to collaborate on your next project or discuss how I can contribute 
@@ -102,7 +102,7 @@ const ContactSection: React.FC = () => {
           </p>
         </AnimatedDiv>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 sm:gap-16">
           {/* Contact Information */}
           <AnimatedDiv animationClass="animate-slide-in-left" delay={200} className="space-y-6 lg:space-y-8">
             <div>
@@ -263,7 +263,7 @@ const ContactSection: React.FC = () => {
         </div>
 
         {/* Footer Note */}
-        <AnimatedDiv animationClass="animate-slide-up" delay={500} className="text-center mt-12 lg:mt-16">
+        <AnimatedDiv animationClass="animate-slide-up" delay={500} className="text-center mt-12 lg:mt-10 sm:mt-16">
           <div className="card-glass max-w-2xl mx-auto">
             <h3 className="text-base lg:text-lg font-semibold text-foreground mb-2 lg:mb-3">
               Open to Opportunities

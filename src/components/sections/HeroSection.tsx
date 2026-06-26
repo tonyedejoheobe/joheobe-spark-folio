@@ -18,12 +18,12 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-6 py-20 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 py-12 sm:py-20 overflow-hidden">
       {/* Animated Gradient Background */}
       <div className="absolute inset-0 -z-10 bg-animated-gradient"></div>
 
       <div className="container mx-auto max-w-6xl">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           {/* Text Content */}
           <div className="text-center lg:text-left space-y-8 animate-slide-in-left">
             <div className="space-y-4">

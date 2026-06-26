@@ -76,10 +76,10 @@ const SkillsSection: React.FC = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 px-6 bg-surface/50">
+    <section id="skills" className="py-12 sm:py-20 px-4 sm:px-6 bg-surface/50">
       <div className="container mx-auto max-w-6xl">
         {/* Section Header */}
-        <AnimatedDiv animationClass="animate-slide-up" className="text-center mb-16">
+        <AnimatedDiv animationClass="animate-slide-up" className="text-center mb-10 sm:mb-16">
           <h2 className="heading-lg mb-4">Skills & Expertise</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             A comprehensive skill set spanning customer support excellence, 
@@ -88,7 +88,7 @@ const SkillsSection: React.FC = () => {
         </AnimatedDiv>
 
         {/* Skills Grid */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid lg:grid-cols-3 gap-8 mb-10 sm:mb-16">
           {skillCategories.map((category, categoryIndex) => (
             <AnimatedDiv
               key={categoryIndex}
@@ -157,7 +157,7 @@ const SkillsSection: React.FC = () => {
         </div>
 
         {/* Technology Focus */}
-        <AnimatedDiv animationClass="animate-slide-up" delay={1000} className="mt-16 text-center">
+        <AnimatedDiv animationClass="animate-slide-up" delay={1000} className="mt-10 sm:mt-16 text-center">
           <h3 className="text-2xl font-semibold text-foreground mb-8">
             Currently Learning & Exploring
           </h3>

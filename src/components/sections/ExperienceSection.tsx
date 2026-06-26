@@ -39,10 +39,10 @@ const ExperienceSection: React.FC = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 px-6">
+    <section id="experience" className="py-12 sm:py-20 px-4 sm:px-6">
       <div className="container mx-auto max-w-6xl">
         {/* Section Header */}
-        <AnimatedDiv animationClass="animate-slide-up" className="text-center mb-16">
+        <AnimatedDiv animationClass="animate-slide-up" className="text-center mb-10 sm:mb-16">
           <h2 className="heading-lg mb-4">Professional Experience</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             A proven track record of delivering exceptional customer support while 
@@ -60,7 +60,7 @@ const ExperienceSection: React.FC = () => {
               key={index}
               animationClass={index % 2 === 0 ? 'animate-slide-in-right' : 'animate-slide-in-left'}
               delay={index * 200}
-              className={`relative mb-16 ${
+              className={`relative mb-10 sm:mb-16 ${
                 index % 2 === 0 ? 'md:pr-1/2' : 'md:pl-1/2 md:text-right'
               }`}
             >
@@ -140,7 +140,7 @@ const ExperienceSection: React.FC = () => {
         </div>
 
         {/* Call to Action */}
-        <AnimatedDiv animationClass="animate-slide-up" className="text-center mt-16">
+        <AnimatedDiv animationClass="animate-slide-up" className="text-center mt-10 sm:mt-16">
           <div className="card-glass max-w-2xl mx-auto">
             <h3 className="text-xl font-semibold text-foreground mb-3">
               Ready to Collaborate?
