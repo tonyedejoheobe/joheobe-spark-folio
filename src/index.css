@@ -131,7 +131,7 @@
 @layer components {
   /* Enhanced Button Variants */
   .btn-hero {
-    @apply relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold;
+    @apply relative inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold;
     @apply bg-primary text-primary-foreground rounded-xl shadow-lg;
     @apply transition-all duration-300 ease-out;
     @apply hover:shadow-glow hover:-translate-y-1 hover:scale-105;
@@ -140,7 +140,7 @@
   }
 
   .btn-ghost {
-    @apply relative inline-flex items-center justify-center px-6 py-3 font-medium;
+    @apply relative inline-flex items-center justify-center px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base font-medium;
     @apply text-foreground bg-card border-2 border-border rounded-lg;
     @apply transition-all duration-300 ease-out;
     @apply hover:text-primary hover:border-primary hover:bg-accent;
@@ -149,7 +149,7 @@
   }
 
   .btn-neon {
-    @apply relative inline-flex items-center justify-center px-8 py-4 font-semibold;
+    @apply relative inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-semibold;
     @apply bg-brand-neon text-black rounded-xl shadow-lg;
     @apply transition-all duration-300 ease-out;
     @apply hover:shadow-neon hover:-translate-y-1 hover:scale-105;
@@ -159,14 +159,14 @@
 
   /* Card Enhancements */
   .card-elevated {
-    @apply bg-card border-2 border-border rounded-2xl p-6 shadow-lg;
+    @apply bg-card border-2 border-border rounded-2xl p-4 sm:p-6 shadow-lg;
     @apply transition-all duration-300 ease-out;
     @apply hover:shadow-xl hover:-translate-y-2;
     @apply hover:border-primary/40;
   }
 
   .card-glass {
-    @apply bg-card border-2 border-border/80 rounded-2xl p-6;
+    @apply bg-card border-2 border-border/80 rounded-2xl p-4 sm:p-6;
     @apply shadow-xl transition-all duration-300 ease-out;
     @apply hover:bg-card hover:border-primary/40;
     @apply hover:shadow-glow;
@@ -181,16 +181,16 @@
 
   /* Typography Enhancements */
   .heading-xl {
-    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight;
+    @apply text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight;
     @apply text-foreground;
   }
 
   .heading-lg {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground;
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground;
   }
 
   .heading-md {
-    @apply text-2xl md:text-3xl font-semibold tracking-tight text-foreground;
+    @apply text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight text-foreground;
   }
 
   .text-gradient {
