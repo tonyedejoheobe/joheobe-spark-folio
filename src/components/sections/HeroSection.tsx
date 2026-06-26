@@ -18,12 +18,12 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-6 py-20 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 py-12 sm:py-20 overflow-hidden">
       {/* Animated Gradient Background */}
       <div className="absolute inset-0 -z-10 bg-animated-gradient"></div>
 
       <div className="container mx-auto max-w-6xl">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           {/* Text Content */}
           <div className="text-center lg:text-left space-y-8 animate-slide-in-left">
             <div className="space-y-4">
@@ -34,10 +34,10 @@ const HeroSection: React.FC = () => {
                 Joheobe Tony Ede
               </h1>
               <div className="space-y-2">
-                <h2 className="text-2xl md:text-3xl font-semibold text-gradient animate-slide-up" style={{ animationDelay: '0.2s' }}>
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gradient animate-slide-up" style={{ animationDelay: '0.2s' }}>
                   Technical Support Specialist
                 </h2>
-                <h3 className="text-xl md:text-2xl font-medium text-muted-foreground animate-slide-up" style={{ animationDelay: '0.3s' }}>
+                <h3 className="text-base sm:text-xl md:text-2xl font-medium text-muted-foreground animate-slide-up" style={{ animationDelay: '0.3s' }}>
                   & Junior Frontend Developer
                 </h3>
               </div>
@@ -99,7 +99,7 @@ const HeroSection: React.FC = () => {
 
           {/* 3D Visual Element */}
           <div className="relative flex items-center justify-center animate-slide-in-right">
-            <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
+            <div className="relative w-56 h-56 sm:w-80 sm:h-80 lg:w-96 lg:h-96 mx-auto">
               {/* Floating code blocks */}
               <div className="absolute top-0 right-0 bg-card border border-border rounded-lg p-3 sm:p-4 shadow-lg animate-float card-3d">
                 <pre className="text-xs sm:text-sm text-brand-primary font-mono">

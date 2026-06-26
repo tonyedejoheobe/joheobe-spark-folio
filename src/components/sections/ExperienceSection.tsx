@@ -39,12 +39,12 @@ const ExperienceSection: React.FC = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 px-6">
+    <section id="experience" className="py-12 sm:py-20 px-4 sm:px-6">
       <div className="container mx-auto max-w-6xl">
         {/* Section Header */}
-        <AnimatedDiv animationClass="animate-slide-up" className="text-center mb-16">
+        <AnimatedDiv animationClass="animate-slide-up" className="text-center mb-10 sm:mb-16">
           <h2 className="heading-lg mb-4">Professional Experience</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-xl text-muted-foreground max-w-3xl mx-auto">
             A proven track record of delivering exceptional customer support while 
             contributing to product development and process optimization
           </p>
@@ -53,28 +53,28 @@ const ExperienceSection: React.FC = () => {
         {/* Timeline */}
         <div className="relative">
           {/* Timeline Line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-brand-primary via-brand-secondary to-brand-neon transform md:-translate-x-1/2"></div>
+          <div className="absolute left-3 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-brand-primary via-brand-secondary to-brand-neon transform md:-translate-x-1/2"></div>
 
           {experiences.map((exp, index) => (
             <AnimatedDiv
               key={index}
               animationClass={index % 2 === 0 ? 'animate-slide-in-right' : 'animate-slide-in-left'}
               delay={index * 200}
-              className={`relative mb-16 ${
+              className={`relative mb-10 sm:mb-16 ${
                 index % 2 === 0 ? 'md:pr-1/2' : 'md:pl-1/2 md:text-right'
               }`}
             >
               {/* Timeline Node */}
-              <div className={`absolute top-8 w-6 h-6 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-full border-4 border-background shadow-lg ${
+              <div className={`absolute top-6 w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-full border-4 border-background shadow-lg ${
                 index % 2 === 0 
-                  ? 'left-5 md:right-0 md:left-auto md:transform md:translate-x-1/2' 
-                  : 'left-5 md:left-0 md:transform md:-translate-x-1/2'
+                  ? 'left-1 md:right-0 md:left-auto md:transform md:translate-x-1/2' 
+                  : 'left-1 md:left-0 md:transform md:-translate-x-1/2'
               }`}>
                 <div className="absolute inset-1 bg-white rounded-full animate-pulse"></div>
               </div>
 
               {/* Content Card */}
-              <div className={`ml-16 md:ml-0 ${index % 2 === 0 ? 'md:mr-16' : 'md:ml-16'}`}>
+              <div className={`ml-10 md:ml-0 ${index % 2 === 0 ? 'md:mr-16' : 'md:ml-16'}`}>
                 <div className="card-elevated group hover:border-brand-primary/20">
                   {/* Header */}
                   <div className="mb-6">
@@ -140,7 +140,7 @@ const ExperienceSection: React.FC = () => {
         </div>
 
         {/* Call to Action */}
-        <AnimatedDiv animationClass="animate-slide-up" className="text-center mt-16">
+        <AnimatedDiv animationClass="animate-slide-up" className="text-center mt-10 sm:mt-16">
           <div className="card-glass max-w-2xl mx-auto">
             <h3 className="text-xl font-semibold text-foreground mb-3">
               Ready to Collaborate?

@@ -47,12 +47,12 @@ const EducationSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 px-6 bg-surface/30">
+    <section className="py-12 sm:py-20 px-4 sm:px-6 bg-surface/30">
       <div className="container mx-auto max-w-4xl">
         {/* Section Header */}
-        <AnimatedDiv animationClass="animate-slide-up" className="text-center mb-16">
+        <AnimatedDiv animationClass="animate-slide-up" className="text-center mb-10 sm:mb-16">
           <h2 className="heading-lg mb-4">Education & Learning</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-xl text-muted-foreground max-w-3xl mx-auto">
             Combining formal education in software engineering with continuous 
             professional development and hands-on industry experience
           </p>
@@ -215,7 +215,7 @@ const EducationSection: React.FC = () => {
         </div>
 
         {/* Continuous Learning */}
-        <AnimatedDiv animationClass="animate-slide-up" delay={500} className="text-center mt-16">
+        <AnimatedDiv animationClass="animate-slide-up" delay={500} className="text-center mt-10 sm:mt-16">
           <div className="card-elevated max-w-2xl mx-auto">
             <Users className="w-16 h-16 text-brand-primary mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-foreground mb-3">

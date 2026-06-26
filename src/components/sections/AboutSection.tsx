@@ -28,20 +28,20 @@ const AboutSection: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-20 px-6 bg-surface/50">
+    <section id="about" className="py-12 sm:py-20 px-4 sm:px-6 bg-surface/50">
       <div className="container mx-auto max-w-6xl">
         {/* Section Header */}
         <AnimatedDiv animationClass="animate-slide-up">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 sm:mb-16">
             <h2 className="heading-lg mb-4">About Me</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-base sm:text-xl text-muted-foreground max-w-3xl mx-auto">
               Combining technical expertise with customer empathy to deliver exceptional
               solutions and experiences
             </p>
           </div>
         </AnimatedDiv>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="grid lg:grid-cols-2 gap-10 sm:gap-16 items-start">
           {/* Left Column - Story */}
           <AnimatedDiv animationClass="animate-slide-in-left" delay={200}>
             <div className="space-y-6">
@@ -99,7 +99,7 @@ const AboutSection: React.FC = () => {
         </div>
 
         {/* Stats Row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-16 border-t border-border">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 mt-10 sm:mt-16 pt-16 border-t border-border">
           {[
             { value: "95%", label: "First Call Resolution" },
             { value: "30%", label: "Faster Resolution Time" },

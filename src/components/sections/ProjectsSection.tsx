@@ -77,12 +77,12 @@ const ProjectsSection: React.FC = () => {
   };
 
   return (
-    <section id="projects" className="py-20 px-6">
+    <section id="projects" className="py-12 sm:py-20 px-4 sm:px-6">
       <div className="container mx-auto max-w-6xl">
         {/* Section Header */}
-        <AnimatedDiv animationClass="animate-slide-up" className="text-center mb-16">
+        <AnimatedDiv animationClass="animate-slide-up" className="text-center mb-10 sm:mb-16">
           <h2 className="heading-lg mb-4">Projects & Portfolio</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-xl text-muted-foreground max-w-3xl mx-auto">
             Showcasing a blend of customer support solutions and frontend development projects, 
             each designed to solve real-world problems and enhance user experiences
           </p>
@@ -186,7 +186,7 @@ const ProjectsSection: React.FC = () => {
         </div>
 
         {/* Call to Action */}
-        <AnimatedDiv animationClass="animate-slide-up" delay={800} className="text-center mt-16">
+        <AnimatedDiv animationClass="animate-slide-up" delay={800} className="text-center mt-10 sm:mt-16">
           <div className="card-glass max-w-2xl mx-auto">
             <Layers className="w-16 h-16 text-brand-primary mx-auto mb-4" />
             <h3 className="text-2xl font-semibold text-foreground mb-4">
