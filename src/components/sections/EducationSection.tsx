@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { GraduationCap, Calendar, MapPin, Award, BookOpen, Users, ExternalLink, X } from 'lucide-react';
 import AnimatedDiv from '@/components/ui/AnimatedDiv';
 import ExpandableText from '@/components/ui/ExpandableText';
-import certificateAsset from '@/assets/certificate-software-engineering.jpeg.asset.json';
+import certificateImg from '@/assets/certificate-software-engineering.jpeg';
 
 const EducationSection: React.FC = () => {
   const [isCertOpen, setIsCertOpen] = useState(false);
@@ -124,7 +124,7 @@ const EducationSection: React.FC = () => {
                   className="group relative block w-full max-w-md overflow-hidden rounded-xl border border-border bg-card shadow-md transition-all duration-300 hover:border-brand-primary hover:shadow-glow"
                 >
                   <img
-                    src={certificateAsset.url}
+                    src={certificateImg}
                     alt="Bachelor of Science in Software Engineering & Digital Entrepreneurship — Statement of Result, Ave Maria University"
                     loading="lazy"
                     className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
@@ -162,7 +162,7 @@ const EducationSection: React.FC = () => {
               <X className="w-5 h-5" />
             </button>
             <img
-              src={certificateAsset.url}
+              src={certificateImg}
               alt="Certificate — full view"
               className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl border border-border"
               onClick={(e) => e.stopPropagation()}
