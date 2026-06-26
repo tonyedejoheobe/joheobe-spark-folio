@@ -27,7 +27,7 @@ const Index = () => {
         <div className="container mx-auto max-w-6xl text-center">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-muted-foreground">
-              © 2024 Joheobe Tony Ede. Crafted with passion and precision.
+              © {new Date().getFullYear()} Joheobe Tony Ede. All rights reserved.
             </p>
             <p className="text-sm text-muted-foreground">
               Built with React, TypeScript, and Tailwind CSS

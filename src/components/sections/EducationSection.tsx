@@ -1,22 +1,26 @@
-import React from 'react';
-import { GraduationCap, Calendar, MapPin, Award, BookOpen, Users } from 'lucide-react';
+import React, { useState } from 'react';
+import { GraduationCap, Calendar, MapPin, Award, BookOpen, Users, ExternalLink, X } from 'lucide-react';
 import AnimatedDiv from '@/components/ui/AnimatedDiv';
 import ExpandableText from '@/components/ui/ExpandableText';
+import certificateAsset from '@/assets/certificate-software-engineering.jpeg.asset.json';
 
 const EducationSection: React.FC = () => {
+  const [isCertOpen, setIsCertOpen] = useState(false);
+
   const education = {
-    degree: "Bachelor of Software Engineering",
-    institution: "Ave Maria University",
-    location: "Nigeria",
-    period: "2019 – 2023",
-    description: "Comprehensive program covering software development principles, computer science fundamentals, and practical application development skills.",
+    degree: "Bachelor of Science in Software Engineering & Digital Entrepreneurship",
+    institution: "Ave Maria University, Piyanko",
+    location: "Nasarawa State, Nigeria",
+    period: "2021 – 2025",
+    classification: "Second Class Honours (Upper Division)",
+    description: "An interdisciplinary program blending core software engineering principles with digital entrepreneurship, equipping graduates to design, build, and bring modern software products to market.",
     highlights: [
       "Software Development Lifecycle",
       "Object-Oriented Programming",
       "Database Design & Management",
       "Web Technologies & Frameworks",
       "Software Testing & Quality Assurance",
-      "Project Management & Team Collaboration"
+      "Digital Product & Entrepreneurship"
     ]
   };
 
@@ -82,13 +86,18 @@ const EducationSection: React.FC = () => {
                 </div>
               </div>
 
+              <div className="inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full bg-brand-primary/10 border border-brand-primary/20">
+                <Award className="w-4 h-4 text-brand-primary" />
+                <span className="text-sm font-medium text-brand-primary">{education.classification}</span>
+              </div>
+
               <ExpandableText 
                 text={education.description}
                 maxLength={120}
                 className="mb-6"
               />
 
-              <div>
+              <div className="mb-6">
                 <h5 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
                   <BookOpen className="w-4 h-4 text-brand-neon" />
                   Key Areas of Study
@@ -102,9 +111,64 @@ const EducationSection: React.FC = () => {
                   ))}
                 </div>
               </div>
+
+              {/* Certificate */}
+              <div className="border-t border-border pt-6">
+                <h5 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
+                  <Award className="w-4 h-4 text-brand-secondary" />
+                  Official Statement of Result
+                </h5>
+                <button
+                  type="button"
+                  onClick={() => setIsCertOpen(true)}
+                  className="group relative block w-full max-w-md overflow-hidden rounded-xl border border-border bg-card shadow-md transition-all duration-300 hover:border-brand-primary hover:shadow-glow"
+                >
+                  <img
+                    src={certificateAsset.url}
+                    alt="Bachelor of Science in Software Engineering & Digital Entrepreneurship — Statement of Result, Ave Maria University"
+                    loading="lazy"
+                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/40 transition-colors duration-300 flex items-center justify-center">
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-background/90 text-foreground text-sm font-medium border border-border">
+                      <ExternalLink className="w-4 h-4" />
+                      View Certificate
+                    </span>
+                  </div>
+                </button>
+                <p className="text-xs text-muted-foreground mt-2">
+                  Click to view in full size
+                </p>
+              </div>
             </div>
           </div>
         </AnimatedDiv>
+
+        {/* Certificate Lightbox */}
+        {isCertOpen && (
+          <div
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-background/95 backdrop-blur-sm animate-in fade-in duration-200"
+            onClick={() => setIsCertOpen(false)}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Certificate preview"
+          >
+            <button
+              type="button"
+              onClick={() => setIsCertOpen(false)}
+              className="absolute top-4 right-4 p-2 rounded-full bg-card border border-border text-foreground hover:bg-accent transition-colors shadow-lg"
+              aria-label="Close"
+            >
+              <X className="w-5 h-5" />
+            </button>
+            <img
+              src={certificateAsset.url}
+              alt="Certificate — full view"
+              className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl border border-border"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        )}
 
         {/* Professional Development */}
         <AnimatedDiv animationClass="animate-slide-up" delay={300} className="mb-8">
