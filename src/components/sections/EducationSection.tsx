@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { GraduationCap, Calendar, MapPin, Award, BookOpen, Users, ExternalLink, X } from 'lucide-react';
 import AnimatedDiv from '@/components/ui/AnimatedDiv';
 import ExpandableText from '@/components/ui/ExpandableText';
-import certificateAsset from '@/assets/certificate-software-engineering.jpeg.asset.json';
-const certificateImg = certificateAsset.url;
+import certificateImg from '@/assets/certificate-software-engineering.jpeg';
 
 const EducationSection: React.FC = () => {
   const [isCertOpen, setIsCertOpen] = useState(false);
@@ -60,12 +59,12 @@ const EducationSection: React.FC = () => {
 
         {/* Main Education */}
         <AnimatedDiv animationClass="animate-slide-up" delay={200} className="card-elevated mb-12">
-          <div className="flex items-start gap-6">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
             <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-xl flex items-center justify-center shadow-lg">
               <GraduationCap className="w-8 h-8 text-white" />
             </div>
-            
-            <div className="flex-1">
+
+            <div className="flex-1 w-full text-center sm:text-left">
               <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-2 mb-4">
                 <div>
                   <h3 className="text-2xl font-bold text-foreground mb-1">
@@ -75,21 +74,23 @@ const EducationSection: React.FC = () => {
                     {education.institution}
                   </h4>
                 </div>
-                <div className="flex flex-col sm:flex-row gap-4 text-sm text-muted-foreground">
-                  <div className="flex items-center gap-2">
+                <div className="flex flex-col sm:flex-row justify-center sm:justify-start gap-4 text-sm text-muted-foreground">
+                  <div className="flex items-center justify-center sm:justify-start gap-2">
                     <Calendar className="w-4 h-4 text-brand-primary" />
                     <span>{education.period}</span>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center justify-center sm:justify-start gap-2">
                     <MapPin className="w-4 h-4 text-brand-primary" />
                     <span>{education.location}</span>
                   </div>
                 </div>
               </div>
 
-              <div className="inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full bg-brand-primary/10 border border-brand-primary/20">
-                <Award className="w-4 h-4 text-brand-primary" />
-                <span className="text-sm font-medium text-brand-primary">{education.classification}</span>
+              <div className="flex justify-center sm:justify-start">
+                <div className="inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full bg-brand-primary/10 border border-brand-primary/20">
+                  <Award className="w-4 h-4 text-brand-primary" />
+                  <span className="text-sm font-medium text-brand-primary">{education.classification}</span>
+                </div>
               </div>
 
               <ExpandableText 
@@ -99,14 +100,14 @@ const EducationSection: React.FC = () => {
               />
 
               <div className="mb-6">
-                <h5 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
+                <h5 className="text-sm font-semibold text-foreground mb-3 flex items-center justify-center sm:justify-start gap-2">
                   <BookOpen className="w-4 h-4 text-brand-neon" />
                   Key Areas of Study
                 </h5>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {education.highlights.map((highlight, index) => (
-                    <div key={index} className="flex items-center gap-3">
-                      <div className="w-2 h-2 bg-brand-neon rounded-full"></div>
+                    <div key={index} className="flex items-center justify-center sm:justify-start gap-3">
+                      <div className="w-2 h-2 bg-brand-neon rounded-full flex-shrink-0"></div>
                       <span className="text-muted-foreground">{highlight}</span>
                     </div>
                   ))}
@@ -115,14 +116,14 @@ const EducationSection: React.FC = () => {
 
               {/* Certificate */}
               <div className="border-t border-border pt-6">
-                <h5 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
+                <h5 className="text-sm font-semibold text-foreground mb-3 flex items-center justify-center sm:justify-start gap-2">
                   <Award className="w-4 h-4 text-brand-secondary" />
                   Official Statement of Result
                 </h5>
                 <button
                   type="button"
                   onClick={() => setIsCertOpen(true)}
-                  className="group relative block w-full max-w-md overflow-hidden rounded-xl border border-border bg-card shadow-md transition-all duration-300 hover:border-brand-primary hover:shadow-glow"
+                  className="group relative block w-full max-w-md overflow-hidden rounded-xl border border-border bg-card shadow-md transition-all duration-300 hover:border-brand-primary hover:shadow-glow mx-auto sm:mx-0"
                 >
                   <img
                     src={certificateImg}
