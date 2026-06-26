@@ -1,22 +1,26 @@
-import React from 'react';
-import { GraduationCap, Calendar, MapPin, Award, BookOpen, Users } from 'lucide-react';
+import React, { useState } from 'react';
+import { GraduationCap, Calendar, MapPin, Award, BookOpen, Users, ExternalLink, X } from 'lucide-react';
 import AnimatedDiv from '@/components/ui/AnimatedDiv';
 import ExpandableText from '@/components/ui/ExpandableText';
+import certificateAsset from '@/assets/certificate-software-engineering.jpeg.asset.json';
 
 const EducationSection: React.FC = () => {
+  const [isCertOpen, setIsCertOpen] = useState(false);
+
   const education = {
-    degree: "Bachelor of Software Engineering",
-    institution: "Ave Maria University",
-    location: "Nigeria",
-    period: "2019 – 2023",
-    description: "Comprehensive program covering software development principles, computer science fundamentals, and practical application development skills.",
+    degree: "Bachelor of Science in Software Engineering & Digital Entrepreneurship",
+    institution: "Ave Maria University, Piyanko",
+    location: "Nasarawa State, Nigeria",
+    period: "2021 – 2025",
+    classification: "Second Class Honours (Upper Division)",
+    description: "An interdisciplinary program blending core software engineering principles with digital entrepreneurship, equipping graduates to design, build, and bring modern software products to market.",
     highlights: [
       "Software Development Lifecycle",
       "Object-Oriented Programming",
       "Database Design & Management",
       "Web Technologies & Frameworks",
       "Software Testing & Quality Assurance",
-      "Project Management & Team Collaboration"
+      "Digital Product & Entrepreneurship"
     ]
   };
 
