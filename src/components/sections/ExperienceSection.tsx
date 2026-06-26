@@ -53,7 +53,7 @@ const ExperienceSection: React.FC = () => {
         {/* Timeline */}
         <div className="relative">
           {/* Timeline Line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-brand-primary via-brand-secondary to-brand-neon transform md:-translate-x-1/2"></div>
+          <div className="absolute left-3 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-brand-primary via-brand-secondary to-brand-neon transform md:-translate-x-1/2"></div>
 
           {experiences.map((exp, index) => (
             <AnimatedDiv
@@ -65,16 +65,16 @@ const ExperienceSection: React.FC = () => {
               }`}
             >
               {/* Timeline Node */}
-              <div className={`absolute top-8 w-6 h-6 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-full border-4 border-background shadow-lg ${
+              <div className={`absolute top-6 w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-full border-4 border-background shadow-lg ${
                 index % 2 === 0 
-                  ? 'left-5 md:right-0 md:left-auto md:transform md:translate-x-1/2' 
-                  : 'left-5 md:left-0 md:transform md:-translate-x-1/2'
+                  ? 'left-1 md:right-0 md:left-auto md:transform md:translate-x-1/2' 
+                  : 'left-1 md:left-0 md:transform md:-translate-x-1/2'
               }`}>
                 <div className="absolute inset-1 bg-white rounded-full animate-pulse"></div>
               </div>
 
               {/* Content Card */}
-              <div className={`ml-16 md:ml-0 ${index % 2 === 0 ? 'md:mr-16' : 'md:ml-16'}`}>
+              <div className={`ml-10 md:ml-0 ${index % 2 === 0 ? 'md:mr-16' : 'md:ml-16'}`}>
                 <div className="card-elevated group hover:border-brand-primary/20">
                   {/* Header */}
                   <div className="mb-6">
